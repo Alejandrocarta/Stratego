@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Dell
+ * @author aleja
  */
 public class Log_de_UltimosJuegos extends javax.swing.JFrame {
    ArrayList<Usuario> Usuarios;

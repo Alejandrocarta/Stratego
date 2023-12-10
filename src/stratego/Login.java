@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Dell
+ * @author aleja
  */
 public class Login extends javax.swing.JFrame {
 ArrayList<Logs> Todoslos_Logs;
@@ -69,6 +69,11 @@ boolean CT_Pass_Clickeado= false;
         jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField1MouseClicked(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
             }
         });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, 186, 35));
@@ -161,6 +166,10 @@ boolean CT_Pass_Clickeado= false;
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
    
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

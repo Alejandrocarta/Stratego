@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Dell
+ * @author aleja
  */
 public class Batallas extends javax.swing.JFrame {
    ArrayList<Logs> Todoslos_Logs;
