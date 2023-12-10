@@ -11,14 +11,12 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author aleja
- * zsexdfcgvhbjnkml
  */
 public class Login extends javax.swing.JFrame {
 ArrayList<Logs> Todoslos_Logs;
     ArrayList<Usuario> Usuarios;
 boolean CT_Nombre_Clickeado= false;
 boolean CT_Pass_Clickeado= false;
-boolean perro;
     /**
      * Creates new form Login
      */
