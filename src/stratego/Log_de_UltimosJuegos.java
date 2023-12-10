@@ -29,6 +29,7 @@ public class Log_de_UltimosJuegos extends javax.swing.JFrame {
         
         
         initComponents();
+        this.setResizable(false);
         
         int CONTADOR = 0;
         for(int i=0; i < Todoslos_Logs.size(); i++){

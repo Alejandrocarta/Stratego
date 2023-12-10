@@ -56,25 +56,27 @@ boolean ModoTutorial;
         String[] buttons = {"Villano", "Heroe"};
         int returnValue = JOptionPane.showOptionDialog(null, "Bandos: ", "Elija un Bando",
                 JOptionPane.WARNING_MESSAGE, 0, null, buttons, buttons[0]);
-        System.out.println(returnValue);
 
-                int CONTADOR = 0;
-        
-              for (int i = 0; i < UsuariosObtenidos.size(); i++) {
-                  if(UserIndex != i && UsuariosObtenidos.get(i).isActivo()){
-                      CONTADOR++;
-                  }
-              }
-              
-        String[] UsuariosAEscoger = new String[CONTADOR];
-        int Posicion = 0;
-        for (int i = 0; i < UsuariosObtenidos.size(); i++) {
-            if (UserIndex != i && UsuariosObtenidos.get(i).isActivo()) {
-                UsuariosAEscoger[Posicion] = UsuariosObtenidos.get(i).getUser();
-                Posicion++;
-            }
+               if (returnValue != JOptionPane.CLOSED_OPTION) {
+    // El resto de tu código solo se ejecutará si el usuario no cerró el cuadro de diálogo
+    int CONTADOR = 0;
 
+    for (int i = 0; i < UsuariosObtenidos.size(); i++) {
+        if(UserIndex != i && UsuariosObtenidos.get(i).isActivo()){
+            CONTADOR++;
         }
+    }
+
+    String[] UsuariosAEscoger = new String[CONTADOR];
+    int Posicion = 0;
+    for (int i = 0; i < UsuariosObtenidos.size(); i++) {
+        if (UserIndex != i && UsuariosObtenidos.get(i).isActivo()) {
+            UsuariosAEscoger[Posicion] = UsuariosObtenidos.get(i).getUser();
+            Posicion++;
+        }
+    }
+
+               
         String input = (String) JOptionPane.showInputDialog(null, "Escoja segundo Jugador",
                 "Jugador 2", JOptionPane.QUESTION_MESSAGE, null,
                 UsuariosAEscoger,
@@ -110,7 +112,9 @@ boolean ModoTutorial;
         
         
         ActualizarTablero(ControladorTablero.getMatrizTablero(), ControladorTablero.getMatrizHeroe(), ControladorTablero.getMatrizVillano());
-
+    }else {
+    System.out.println("El usuario cerró el cuadro de diálogo");
+               }
     }
 
     /**
@@ -128,7 +132,7 @@ boolean ModoTutorial;
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(51, 153, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -240,17 +244,6 @@ boolean ModoTutorial;
                 this.setVisible(false);
         
         }
-        
-       
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }//GEN-LAST:event_jButton3MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -593,6 +586,7 @@ boolean ModoTutorial;
             }
         });
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

@@ -109,6 +109,11 @@ public class MiPerfil extends javax.swing.JFrame {
                 jButton5MouseClicked(evt);
             }
         });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 190, 230, 50));
 
         jButton6.setText("Eliminar mi Cuenta");
@@ -151,43 +156,52 @@ public class MiPerfil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4MouseClicked
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-   try{
-        String Contra = JOptionPane.showInputDialog("Ingrese su Contraseña Actual: ");
-     
-     if(Usuarios.get(indexUser).getContra().equals(Contra)){
-         String ContraNueva= "";
-         do{
-            
-               ContraNueva = JOptionPane.showInputDialog("Ingrese Nueva Contraseña (debe ser de 5 caracteres): ");
-         }while(ContraNueva.length() != 5);
-         
-     Usuarios.get(indexUser).setContra(ContraNueva);
-         JOptionPane.showMessageDialog(null, "La contraseña se cambio correctamente");
-     }else{
-             JOptionPane.showMessageDialog(null, "La contraseña no es correcta");
-     }   
-               
-         }catch (Exception e){
-               JOptionPane.showMessageDialog(null, "Operacion Cancelada");
-         }
+   try {
+    String Contra = JOptionPane.showInputDialog("Ingrese su Contraseña Actual: ");
+    if(Contra == null){
+        JOptionPane.showMessageDialog(null, "Operacion Cancelada");
+        return;
+    }
+    if(Usuarios.get(indexUser).getContra().equals(Contra)){
+        String ContraNueva= "";
+        do{
+            ContraNueva = JOptionPane.showInputDialog("Ingrese Nueva Contraseña (debe ser de 5 caracteres): ");
+            if(ContraNueva == null){
+                JOptionPane.showMessageDialog(null, "Operacion Cancelada");
+                return;
+            }
+        }while(ContraNueva.length() != 5);
+        
+        Usuarios.get(indexUser).setContra(ContraNueva);
+        JOptionPane.showMessageDialog(null, "La contraseña se cambio correctamente");
+    }else{
+        JOptionPane.showMessageDialog(null, "La contraseña no es correcta");
+    }   
+} catch (Exception e){
+    JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+}
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-        try{
-         String Contra = JOptionPane.showInputDialog("Ingrese su Contraseña: ");
-     
-     if(Usuarios.get(indexUser).getContra().equals(Contra) &&Usuarios.get(indexUser).isActivo() ){
-         Usuarios.remove(indexUser);
-                        JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
-                MenuInicial ObjMenuI = new MenuInicial(this.Usuarios, this.Todoslos_Logs);
-                ObjMenuI.setVisible(true);
-                this.setVisible(false);
-     }else{
-             JOptionPane.showMessageDialog(null, "La contraseña no es correcta");
-     }   
-            }catch (Exception e){
-               JOptionPane.showMessageDialog(null, "Operacion Cancelada");
-         }   
+        try {
+    String Contra = JOptionPane.showInputDialog("Ingrese su Contraseña: ");
+    if(Contra == null){
+        JOptionPane.showMessageDialog(null, "Operacion Cancelada");
+        return;
+    }
+    if(Usuarios.get(indexUser).getContra().equals(Contra) && Usuarios.get(indexUser).isActivo()){
+        Usuarios.remove(indexUser);
+        JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+        MenuInicial ObjMenuI = new MenuInicial(this.Usuarios, this.Todoslos_Logs);
+        ObjMenuI.setVisible(true);
+        this.setVisible(false);
+    }else{
+        JOptionPane.showMessageDialog(null, "La contraseña no es correcta");
+    }   
+} catch (Exception e){
+    JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+}
+
     }//GEN-LAST:event_jButton6MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -197,6 +211,10 @@ public class MiPerfil extends javax.swing.JFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
